@@ -1,20 +1,28 @@
-//Funciones para cambiar el tipo a grados Kelvin y Fahrenheit
+//Funciones para convertir a grados Kelvin y Fahrenheit
 const convertirAKelvin = (grados) => {
-    const kelvin = grados + 273.15;
-    return kelvin;
+    return grados + 273.15;
 };
 
 const convertirAFahrenheit = (grados) => {
-    const Fahrenheit = (grados * 1.8) + 32;
-    return Fahrenheit;
+    return (grados * 1.8) + 32;
 };
 
-//obtener la entrada del usuario
-const centigrados = Number(prompt(`Ingrese la temperatura en °Centigrados: `));
+//condición del ciclo
+let detener = false;
+while (!detener) {
+    //obtener la entrada del usuario
+    const entrada = prompt(`Ingrese la temperatura en °Centigrados: `);
 
-console.log(`La temperatura en grados Kelvin es:` + convertirAKelvin(centigrados));
-
-console.log(`La temperatura en grados Fahrenheit es:` + convertirAFahrenheit(centigrados));
+    //validar si se ingresó un numero
+    if (entrada === "" || Number.isNaN(Number(entrada))) {
+        alert("Por favor, ingrese un numero");
+    } else {
+        const temperatura = Number(entrada);
+        console.log(`La temperatura en grados Kelvin es: ${convertirAKelvin(temperatura)}`);
+        console.log(`La temperatura en grados Fahrenheit es: ${convertirAFahrenheit(temperatura)}`);
+        detener = true;
+    }
+}
 
 
 
